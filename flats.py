@@ -65,15 +65,17 @@ flat_dict = {
 typ = input("Would you like a flat type: 3+1 or 1+1 or 2+1?")
 
 
-i = 1
-# def return_flat_type(users_searched_type):
-#      if typ ==users_searched _type:
-#           while i<=10:
-#             if str(flat_dict["flat"+str(i)["type"])==users_searched_type:
-#               return "flat "+i
+def return_flat_type(users_searched_type):  # funkce vrací jen datový typ, ne více řádků
+    vysledky = []
+    for byt in flat_dict:
+        if flat_dict[byt]["type"] == users_searched_type:
+            vysledky.append(byt)
+    return vysledky
 
-# return_flat_type ("3+1")
 
+pani_vratila = return_flat_type(typ)
+
+print(pani_vratila)
 
 exit()
 
