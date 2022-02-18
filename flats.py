@@ -1,5 +1,9 @@
+from tkinter.messagebox import YES
+from typing import ValuesView
+
+
 def is_positive_answer(users_answer):
-    positive_answers = [True, "true", 1, "1", "yes", "yeah"]
+    positive_answers = [True, "True","true", 1, "1", "yes", "yeah"]
     if users_answer in positive_answers:
         return True  # return má výsledek buď True nebo False
     else:
@@ -23,7 +27,7 @@ max_price = input("Enter max price: ")
 
 
 if not valid_price_rate(min_price, max_price):
-    print("There is no such flat.")
+    print("There is no such flat. ")
     exit()
 
 print("This is our offer:")
@@ -39,7 +43,7 @@ centr = ["flat one", "flat three", "flat four", "flat five", "flat seven"]
 
 outs = ["flat two", "flat six", "flat eight", "flat nine", "flat ten"]
 
-area = input("Would you like to live in centre or on the outskirts?")
+area = input("Would you like to live in centre or on the outskirts? ")
 print("You may choose from this flats:")
 if area == "centre":
     for flats in centr:
@@ -51,97 +55,89 @@ else:
 
 flat_dict = {
     "flat one": {"balcony": "True", "garage": "True", "type": "1+1", "view": "True"},
-    "flat two": {"balcony": "True", "garage": "True", "type": "2+1", "view": "True"},
+    "flat two": {"balcony": "False", "garage": "True", "type": "2+1", "view": "False"},
     "flat three": {"balcony": "True", "garage": "True", "type": "1+1", "view": "True"},
-    "flat four": {"balcony": "True", "garage": "True", "type": "3+1", "view": "True"},
-    "flat five": {"balcony": "True", "garage": "True", "type": "2+1", "view": "True"},
-    "flat six": {"balcony": "True", "garage": "True", "type": "1+1", "view": "True"},
+    "flat four": {"balcony": "True", "garage": "False", "type": "3+1", "view": "True"},
+    "flat five": {"balcony": "True", "garage": "True", "type": "2+1", "view": "False"},
+    "flat six": {"balcony": "True", "garage": "False", "type": "1+1", "view": "True"},
     "flat seven": {"balcony": "True", "garage": "True", "type": "3+1", "view": "True"},
     "flat eight": {"balcony": "True", "garage": "True", "type": "2+1", "view": "True"},
-    "flat nine": {"balcony": "True", "garage": "True", "type": "3+1", "view": "True"},
-    "flat ten": {"balcony": "True", "garage": "True", "type": "1+1", "view": "True"},
+    "flat nine": {"balcony": "False", "garage": "True", "type": "3+1", "view": "False"},
+    "flat ten": {"balcony": "True", "garage": "False", "type": "1+1", "view": "True"},
 }
 
-typ = input("Would you like a flat type: 3+1 or 1+1 or 2+1?")
-
+typ = input("Would you like a flat type: 3+1 or 1+1 or 2+1? ")
+view = input("Would you like a view of a city? ")
+balcony = input("Would you like a balcony? ")
+garage = input("Would you like a garage? ")
 
 def return_flat_type(users_searched_type):  # funkce vrací jen datový typ, ne více řádků
-    vysledky = []
+    vysledky0 = []
     for byt in flat_dict:
         if flat_dict[byt]["type"] == users_searched_type:
-            vysledky.append(byt)
-    return vysledky
+            vysledky0.append(byt)
+    return vysledky0
 
 
-pani_vratila = return_flat_type(typ)
-
-print(pani_vratila)
-
-exit()
-
-if typ == "3+1":
-    if str(flat_dict["flat 1"]["type"]) == "3+1":
-        print("flat one")
-    if str(flat_dict["flat 2"]["type"]) == "3+1":
-        print("flat two")
-    if str(flat_dict["flat 3"]["type"]) == "3+1":
-        print("flat three")
-    if str(flat_dict["flat 4"]["type"]) == "3+1":
-        print("flat four")
-    if str(flat_dict["flat 5"]["type"]) == "3+1":
-        print("flat five")
-    if str(flat_dict["flat 6"]["type"]) == "3+1":
-        print("flat six")
-    if str(flat_dict["flat 7"]["type"]) == "3+1":
-        print("flat seven")
-    if str(flat_dict["flat 8"]["type"]) == "3+1":
-        print("flat eight")
-    if str(flat_dict["flat 9"]["type"]) == "3+1":
-        print("flat nine")
-    if str(flat_dict["flat 10"]["type"]) == "3+1":
-        print("flat ten")
+pani_vratila_typ = return_flat_type(typ)
+print("Typy bytů:")
+for typy_bytu in pani_vratila_typ:
+    print(typy_bytu)
 
 
-elif typ == "2+1":
-    if str(flat_dict["flat one"]["type"]) == "2+1":
-        print("flat one")
-    if str(flat_dict["flat two"]["type"]) == "2+1":
-        print("flat two")
-    if str(flat_dict["flat three"]["type"]) == "2+1":
-        print("flat three")
-    if str(flat_dict["flat four"]["type"]) == "2+1":
-        print("flat four")
-    if str(flat_dict["flat five"]["type"]) == "2+1":
-        print("flat five")
-    if str(flat_dict["flat six"]["type"]) == "2+1":
-        print("flat six")
-    if str(flat_dict["flat seven"]["type"]) == "2+1":
-        print("flat seven")
-    if str(flat_dict["flat eight"]["type"]) == "2+1":
-        print("flat eight")
-    if str(flat_dict["flat nine"]["type"]) == "2+1":
-        print("flat nine")
-    if str(flat_dict["flat ten"]["type"]) == "2+1":
-        print("flat ten")
 
-elif typ == "1+1":
-    if str(flat_dict["flat one"]["type"]) == "1+1":
-        print("flat one")
-    if str(flat_dict["flat two"]["type"]) == "1+1":
-        print("flat two")
-    if str(flat_dict["flat three"]["type"]) == "1+1":
-        print("flat three")
-    if str(flat_dict["flat four"]["type"]) == "1+1":
-        print("flat four")
-    if str(flat_dict["flat five"]["type"]) == "1+1":
-        print("flat five")
-    if str(flat_dict["flat six"]["type"]) == "1+1":
-        print("flat six")
-    if str(flat_dict["flat seven"]["type"]) == "1+1":
-        print("flat seven")
-    if str(flat_dict["flat eight"]["type"]) == "1+1":
-        print("flat eight")
-    if str(flat_dict["flat nine"]["type"]) == "1+1":
-        print("flat nine")
-    if str(flat_dict["flat ten"]["type"]) == "1+1":
-        print("flat ten")
+def return_flat_balcony(users_searched_balcony):  
+    vysledky1 = []
+    for byt in flat_dict:
+        if flat_dict[byt]["balcony"]==users_searched_balcony:
+            vysledky1.append(byt)
+    return vysledky1
+
+pani_vratila_balkon = return_flat_balcony(balcony)
+print("Byty:")
+for balkony_bytu in pani_vratila_balkon:
+    print(balkony_bytu)
+
+
+def return_flat_view(users_searched_view): 
+    vysledky2 = []
+    for byt in flat_dict:
+        if flat_dict[byt]["view"]==users_searched_view:
+            vysledky2.append(byt)
+    return vysledky2
+
+pani_vratila_vyhled = return_flat_view(view)
+print("Byty:")
+for vyhled_bytu in pani_vratila_vyhled:
+    print(vyhled_bytu)
+
+
+def return_flat_garage(users_searched_garage):  
+    vysledky3 = []
+    for byt in flat_dict:
+        if flat_dict[byt]["garage"] == users_searched_garage:
+            vysledky3.append(byt)
+    return vysledky3
+
+pani_vratila_garaz = return_flat_garage(garage)
+print("Byty:")
+for garaz_bytu in pani_vratila_garaz:
+    print(garaz_bytu)
+
+def return_area(users_area):
+    if users_area == "centre":
+        final_area_centr= centr
+        return final_area_centr
+    elif users_area == "outskirts":
+        final_area_outs= outs
+        return final_area_outs
+x=return_area(area)
+
+
+print("Ideální byt pro vás:")
+idealni= set(pani_vratila_garaz)& set(pani_vratila_balkon)& set(pani_vratila_typ)& set(pani_vratila_vyhled) & set(x)
+for l in idealni:
+    if idealni != None:
+        print(l)
+    else:
+        print("There is no flat for you. ")
